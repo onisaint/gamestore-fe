@@ -1,5 +1,5 @@
 <div class="uk-container uk-container-expand">
   <section *ngFor="let game of games">
-    <app-game-view id="game.id" [gameId]="game.id" [name]="game.name" [price]="game.price"></app-game-view>
+    <app-game-view id="game.id" [game]="game"></app-game-view>
   </section>
 </div>

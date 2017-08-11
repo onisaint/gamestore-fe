@@ -18,8 +18,9 @@ export class ShelfComponent implements OnInit {
     this.gamesService
       .getGames()
       .subscribe((res: IRespose) => {
-        this.games = res.payload;
-        console.log(res.ok);
+          if ( res.ok ) {
+            this.games = res.payload;
+          }
       });
   }
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {GamesService} from "../../shared/services/games.service";
 
 @Component({
   selector: 'app-header',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.sass']
 })
 export class HeaderComponent implements OnInit {
+  cartLen = 0;
 
-  constructor() { }
+  constructor(
+    private gameService: GamesService
+  ) { }
 
   ngOnInit() {
+    this.gameService.cartLen
+      .subscribe(cartLen => this.cartLen = cartLen);
   }
 
 }
