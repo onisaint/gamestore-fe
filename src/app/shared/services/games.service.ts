@@ -3,6 +3,7 @@ import {Http, Response} from '@angular/http';
 import {ApiEndPoint} from '../app.config';
 import 'rxjs/add/operator/map';
 import {IGame} from "../interface/i.game";
+import {HeaderService} from "./header.service";
 
 @Injectable()
 export class GamesService implements OnInit {
@@ -12,6 +13,7 @@ export class GamesService implements OnInit {
 
   constructor(
     private _http: Http,
+    private headerService: HeaderService
   ) { }
 
   ngOnInit () {
@@ -20,7 +22,7 @@ export class GamesService implements OnInit {
 
   getGames() {
     return this._http
-      .get(this._url + '/games')
+      .get(this._url + '/games', {headers: this.headerService.getJWTHeaders()})
       .map((res: Response) => res.json());
   }
 
