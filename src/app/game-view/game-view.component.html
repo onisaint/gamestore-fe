@@ -2,7 +2,7 @@
   <div class="uk-container uk-container-large view">
     <h2>{{game.name}}</h2>
     <h3>price: {{game.price[0].amount | currency:'INR'}}</h3>
-    <button class="uk-button uk-button-danger" [disabled]="inCartStatus" (click)="addToCart()">
+    <button class="uk-button uk-button-danger" [disabled]="inCartStatus" (click)="handleCart()">
       <span *ngIf="!inCartStatus">BUY</span>
       <span *ngIf="inCartStatus">ADDED</span>
     </button>

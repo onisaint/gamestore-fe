@@ -23,5 +23,4 @@ export class ShelfComponent implements OnInit {
           }
       });
   }
-
 }

@@ -3,6 +3,7 @@ export interface IGame {
   id: string,
   name: string;
   description: string;
+  product_id: string;
   price: [
       {
         amount: number,

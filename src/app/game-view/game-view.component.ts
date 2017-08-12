@@ -17,11 +17,19 @@ export class GameViewComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.inCartStatus = this.gameService.checkInCart(this.game);
+    console.log(this.inCartStatus)
   }
 
-  addToCart() {
-    this.gameService
-      .addToCart(this.game);
-    this.inCartStatus = true;
+  handleCart() {
+    if (!this.inCartStatus) {
+      this.gameService
+        .addToCart(this.game);
+      this.inCartStatus = true;
+    } else {
+      this.gameService
+        .removeFromCart(this.game);
+      this.inCartStatus = false;
+    }
   }
 }
