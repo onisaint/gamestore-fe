@@ -16,4 +16,4 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
   7.  Generate a pdf invoice copy of above processed order and save it on local device [done / will get stored on ./orders/]
   
 # techStack
-  Node, motlin, Angular 4 and some of the tools enlisted in package.json
+  Node, moltin, Angular 4 and some of the tools enlisted in package.json
