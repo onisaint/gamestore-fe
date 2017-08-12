@@ -1,0 +1,76 @@
+<div class="uk-container uk-container-expand">
+  <div class="uk-container-small" *ngIf="!displayPay">
+    <h1>Your Shipping details</h1>
+    <form [formGroup]="shippingForm">
+      <div class="uk-margin">
+        <label for="fn">first name</label>
+        <input id="fn" class="uk-input" placeholder="John" formControlName="first_name" [(ngModel)]="shipping.fn">
+      </div>
+      <div class="uk-margin">
+        <label for="ln">last name</label>
+        <input id="ln" class="uk-input" placeholder="Doe" formControlName="last_name" [(ngModel)]="shipping.ln">
+      </div>
+      <div class="uk-margin">
+        <label for="email">Email</label>
+        <input id="email" type="email" class="uk-input" placeholder="johDoe@example.com" formControlName="email" [(ngModel)]="shipping.em">
+      </div>
+      <div class="uk-margin">
+        <label>Address</label>
+        <input class="uk-input" placeholder="address line 1" formControlName="addr_l1" [(ngModel)]="shipping.addr.l1">
+        <input class="uk-input" placeholder="address line 2" formControlName="addr_l2" [(ngModel)]="shipping.addr.l2">
+      </div>
+      <div class="uk-margin">
+        <label for="pc">postal code</label>
+        <input id="pc" class="uk-input" placeholder="577004" formControlName="postal" [(ngModel)]="shipping.postal">
+      </div>
+      <div class="uk-margin">
+        <label for="country">country</label>
+        <input id="country" class="uk-input" value="India" disabled placeholder="INDIA, IN">
+      </div>
+      <button (click)="displayPay = true" [disabled]="shippingForm.invalid" class="uk-button uk-button-primary" type="button">
+        Proceed to payment
+      </button>
+    </form>
+    <small>* for simplicity shipping and billing are same</small>
+  </div>
+  <div class="uk-container-small" *ngIf="displayPay">
+    <h1>Payments</h1>
+    <form [formGroup]="paymentForm">
+      <div class="uk-margin">
+        <label for="card_no">card_no</label>
+        <input id="card_no" class="uk-input" placeholder="xxxx-xxxx-xxxx-xxxx" formControlName="card_no" [(ngModel)]="payment.card_no">
+      </div>
+      <div class="uk-margin">
+        <label for="month">month</label>
+        <input id="month"
+               class="uk-input"
+               placeholder="xx"
+               type="number"
+               maxlength="2"
+               minlength="2"
+               formControlName="month" [(ngModel)]="payment.month">
+      </div>
+      <div class="uk-margin">
+        <label for="year">year</label>
+        <input id="year"
+               class="uk-input"
+               type="number"
+               maxlength="4"
+               minlength="4"
+               placeholder="xxxx"
+               formControlName="year" [(ngModel)]="payment.year">
+      </div>
+      <div class="uk-margin">
+        <label for="ccv">card_no</label>
+        <input id="ccv"
+               type="number"
+               maxlength="3"
+               minlength="3"
+               class="uk-input"
+               formControlName="ccv" [(ngModel)]="payment.ccv"
+               placeholder="xxx">
+      </div>
+      <button class="uk-button uk-button-primary" (click)="onSubmitHandle()" [disabled]="paymentForm.invalid">CONFIRM & PAY</button>
+    </form>
+  </div>
+</div>

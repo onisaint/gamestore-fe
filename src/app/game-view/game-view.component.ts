@@ -18,7 +18,6 @@ export class GameViewComponent implements OnInit {
 
   ngOnInit() {
     this.inCartStatus = this.gameService.checkInCart(this.game);
-    console.log(this.inCartStatus)
   }
 
   handleCart() {

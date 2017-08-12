@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {GamesService} from "../../shared/services/games.service";
+import {IRespose} from "../../shared/interface/i.respose";
 
 @Component({
   selector: 'app-header',
@@ -14,8 +15,12 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.gameService.cartLen
-      .subscribe(cartLen => this.cartLen = cartLen);
+    this.gameService
+      .getCart()
+      .subscribe((res: IRespose) => {
+        if (res.ok) {
+          this.cartLen = res.payload.data.length;
+        }
+      });
   }
-
 }

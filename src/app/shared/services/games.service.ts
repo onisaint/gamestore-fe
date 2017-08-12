@@ -86,4 +86,11 @@ export class GamesService implements OnInit {
       .get('/endsession', {headers:this._jwtHeader})
       .subscribe();
   }
+
+  checkout(shipping) {
+    const payload = shipping;
+    return this._http
+      .post(this._url + '/checkout', payload,  {headers: this._jwtHeader})
+      .map((res: Response) => res.json());
+  }
 }

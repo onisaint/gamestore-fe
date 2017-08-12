@@ -5,7 +5,7 @@
     </div>
     <div class="uk-navbar-right">
       <span class="uk-margin-small-right"><b>{{cartLen}} items</b></span>
-      <button class="uk-button uk-button-primary" [disabled]="cartLen < 1">checkout</button>
+      <button class="uk-button uk-button-primary" [disabled]="cartLen < 1" routerLink="/cart">checkout</button>
     </div>
   </nav>
 </header>

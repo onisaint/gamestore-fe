@@ -1,0 +1,29 @@
+<div class="uk-container uk-container-expand">
+  <h1>YOUR CART</h1>
+  <div *ngIf="bootstraped">
+    <table class="uk-table" >
+      <thead>
+      <tr>
+        <th>name</th>
+        <th>price</th>
+      </tr>
+      </thead>
+      <tfoot>
+      <tr>
+        <td><h2>Total</h2></td>
+        <td><h3><b>{{total}}</b></h3></td>
+      </tr>
+      </tfoot>
+      <tbody>
+      <tr *ngFor="let item of cart">
+        <td>{{item.name}}</td>
+        <td>{{item.meta.display_price.with_tax.value.formatted}}</td>
+      </tr>
+      </tbody>
+    </table>
+    <button class="uk-button uk-button-primary" routerLink="/shipping">PROCEED</button>
+  </div>
+  <div *ngIf="!bootstraped">
+    loading ...
+  </div>
+</div>
