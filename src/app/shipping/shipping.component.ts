@@ -83,6 +83,7 @@ export class ShippingComponent implements OnInit {
       .checkout(paylod)
       .subscribe((res: IRespose) => {
         console.log(res);
+        alert("payment Successfull");
       });
   }
 }

@@ -50,20 +50,14 @@ export class GamesService implements OnInit {
       });
   }
 
-  removeFromCart(game: IGame) {
+  removeFromCart(id) {
     const payload = {
-      _id: ""
+      _id: id
     };
 
     return this._http
-      .delete(this._url + '/cart', {headers: this._jwtHeader, body: payload})
-      .map((res: Response) => res.json())
-      .subscribe((res: IRespose) => {
-        if (res.ok) {
-          this.inCart = res.payload.data;
-          this.cartLen.emit(this.inCart.length);
-        }
-      });
+      .post(this._url + '/delitem', payload,{headers: this._jwtHeader})
+      .map((res: Response) => res.json());
   }
 
   checkInCart(game: IGame) {
